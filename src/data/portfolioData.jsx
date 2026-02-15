@@ -1,5 +1,26 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaReact, FaNodeJs, FaDatabase, FaCode, FaHtml5, FaCss3Alt, FaWordpress, FaFigma } from 'react-icons/fa'; // Example icons
-import { SiExpress, SiMongodb, SiFirebase, SiTailwindcss, SiJavascript, SiTypescript, SiCplusplus, SiPython } from 'react-icons/si'; // More specific tech icons
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaReact,
+  FaNodeJs,
+  FaDatabase,
+  FaCode,
+  FaHtml5,
+  FaCss3Alt,
+  FaJava,
+} from "react-icons/fa";
+import {
+  SiExpress,
+  SiMongodb,
+  SiFirebase,
+  SiTailwindcss,
+  SiJavascript,
+  SiCplusplus,
+  SiSpringboot,
+  SiPostman,
+  SiGooglecloud,
+} from "react-icons/si";
 
 export const personalInfo = {
   name: "Aditi Arya",
@@ -7,9 +28,9 @@ export const personalInfo = {
   email: "aditiarya1511@gmail.com",
   linkedin: "https://linkedin.com/in/aditiarya37",
   github: "https://github.com/aditiarya37",
-  resumeLink: "/AditiAryaResume.pdf", // Make sure your resume is in public/
-  bio: "Innovative Full Stack Developer passionate about creating seamless and impactful web solutions. Eager to leverage modern technologies to solve real-world problems and contribute to dynamic team environments.",
-  shortBio: "I build things for the web." // For Hero section
+  resumeLink: "/AditiAryaResume.pdf",
+  bio: "Innovative Full Stack Developer passionate about creating seamless and impactful web solutions. With a strong foundation in Computer Science and hands-on experience in modern web technologies, I thrive in collaborative environments and love tackling new challenges.",
+  shortBio: "I build things for the web.",
 };
 
 export const education = [
@@ -17,7 +38,7 @@ export const education = [
     institution: "Chandigarh University",
     degree: "Bachelor of Engineering in Computer Science",
     duration: "Aug 2023 – Present",
-    score: "CGPA: 8.17/10",
+    score: "CGPA: 8.04/10",
   },
   {
     institution: "Namdev Public School",
@@ -35,105 +56,179 @@ export const education = [
 
 export const projects = [
   {
-    title: "AgriSure",
+    title: "AyurTrace",
+    tech: ["Hyperledger Fabric", "IoT", "React.js", "Smart Contracts"],
+    description: [
+      <>
+        <span className="text-accent-1 font-semibold">
+          1st Place Winner SIH 2025 Round 1
+        </span>
+        .
+      </>,
+      <>
+        Directed a{" "}
+        <span className="text-text-primary font-medium">
+          blockchain-based supply chain
+        </span>{" "}
+        web application for Ayurvedic herb traceability.
+      </>,
+      <>
+        Implemented{" "}
+        <span className="text-text-primary font-medium">
+          immutable on-chain tracking
+        </span>{" "}
+        with QR verification, ensuring{" "}
+        <span className="text-accent-1 font-semibold">
+          100% supply chain transparency
+        </span>
+        .
+      </>,
+    ],
+    date: "Aug 2025 – Sep 2025",
+    githubLink: "https://github.com/aditiarya37",
+    liveLink: "https://ayurtrace-sepia.vercel.app", // Added Live Link
+    category: "Blockchain",
+    icon: <FaDatabase size={24} className="text-accent-1" />,
+    image: "/AyurTrace.png",
+  },
+  {
+    title: "MaViK-39",
+    tech: ["RAG", "IoT", "React.js", "TensorFlow", "Cloud"],
+    description: [
+      <>
+        <span className="text-accent-1 font-semibold">
+          National Finalist SIH 2025
+        </span>
+        .
+      </>,
+      <>
+        Delivered an{" "}
+        <span className="text-text-primary font-medium">
+          IoT-enabled lab management
+        </span>{" "}
+        web application, decreasing equipment downtime by{" "}
+        <span className="text-accent-1 font-semibold">25%</span>.
+      </>,
+      <>
+        Integrated{" "}
+        <span className="text-text-primary font-medium">
+          biometric authentication
+        </span>
+        , voice interface, and{" "}
+        <span className="text-text-primary font-medium">
+          RAG-powered AI chatbot
+        </span>
+        , improving operational efficiency by{" "}
+        <span className="text-accent-1 font-semibold">40%</span>.
+      </>,
+    ],
+    date: "Nov 2025 – Dec 2025",
+    githubLink: "https://github.com/aditiarya37",
+    liveLink: "https://mavik-39.vercel.app", // Added Live Link
+    category: "IoT & AI",
+    icon: <FaCode size={24} className="text-accent-1" />,
+    image: "/MaViK-39.jpeg",
+  },
+  {
+    title: "DevLink",
     tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
-    description: "Improved financial access for over 12,000 farmers boosting microloan approvals by 35% via CIBIL-based lending, integrating AI insights, and Hindi support via Google Translation. Engineered the full-stack system, handling frontend UI, backend API and database management.",
-    date: "March 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/AgriSure", // Replace with actual link
-    liveLink: null, // Replace with actual link if available
-    category: "Full Stack",
-    icon: <FaReact size={24} className="text-accent-1"/>
-  },
-  {
-    title: "BuildBridge",
-    tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
-    description: "Streamlined contracting for construction projects, reducing deal closure time by 40% via an AI-based platform matching builders with clients. Developed both frontend and backend, integrating user authentication, contract storage, and a responsive UI.",
-    date: "March 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/BuildBridge", // Replace with actual link
-    liveLink: "https://build-bridge-seven.vercel.app/",
-    category: "Full Stack",
-    icon: <FaReact size={24} className="text-accent-1"/>
-  },
-  {
-    title: "FarmConnect",
-    tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
-    description: "Optimized crop storage for farmers, increasing warehouse occupancy by 25% via an AI-powered marketplace connecting farmers with warehouse owners. Developed a seamless booking system with real-time warehouse availability and farmer-friendly UI.",
-    date: "Feb 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/FarmConnect",
-    liveLink: "https://farm-connect-iota-psi.vercel.app/",
-    category: "Full Stack",
-    icon: <FaReact size={24} className="text-accent-1"/>
-  },
-  {
-    title: "WealthWise",
-    tech: ["React JS", "Node JS", "Firebase", "API Integration"],
-    description: "Enhanced financial literacy and user engagement by 40% through an interactive fintech platform integrating gamification. Developed an engaging React UI with gamified elements ensuring smooth user interactions.",
-    date: "Jan 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/WealthWise",
-    liveLink: "https://wealthwisefinance.vercel.app/",
-    category: "Fintech",
-    icon: <SiFirebase size={24} className="text-accent-1"/>
-  },
-  {
-    title: "Blood Shortage Survey and Dashboard",
-    tech: ["React.js", "Node.js", "MongoDB"],
-    description: "Increased efficiency of blood shortage tracking for healthcare organizations by 60% through a real-time analytics dashboard. Built an intuitive React.js dashboard with real-time charts and data visualizations.",
-    date: "Jan 2025 – Present",
-    githubLink: "https://github.com/aditiarya37/BloodLink", // Replace with actual link
+    description: [
+      <>
+        Designed and developed a{" "}
+        <span className="text-text-primary font-medium">
+          full-stack developer community platform
+        </span>{" "}
+        enabling users to create profiles, share projects, and collaborate.
+      </>,
+      <>
+        Owned the system end-to-end by implementing{" "}
+        <span className="text-text-primary font-medium">
+          frontend architecture
+        </span>
+        , <span className="text-text-primary font-medium">backend APIs</span>,
+        and{" "}
+        <span className="text-text-primary font-medium">
+          secure authentication
+        </span>
+        .
+      </>,
+    ],
+    date: "June 2025 – July 2025",
+    githubLink: "https://github.com/aditiarya37",
     liveLink: null,
-    category: "Healthcare",
-    icon: <FaDatabase size={24} className="text-accent-1"/>
+    category: "Full Stack",
+    icon: <FaReact size={24} className="text-accent-1" />,
+    image: "/DevLink.jpeg",
   },
 ];
 
 export const skills = {
   languages: [
     { name: "C/C++", icon: <SiCplusplus /> },
+    { name: "Java", icon: <FaJava /> },
     { name: "JavaScript", icon: <SiJavascript /> },
-    // { name: "TypeScript", icon: <SiTypescript /> }, // Add if you use it
+    { name: "SQL", icon: <FaDatabase /> },
     { name: "HTML5", icon: <FaHtml5 /> },
     { name: "CSS3", icon: <FaCss3Alt /> },
-    { name: "SQL", icon: <FaDatabase /> },
   ],
   frameworksAndLibraries: [
     { name: "React JS", icon: <FaReact /> },
     { name: "Node JS", icon: <FaNodeJs /> },
     { name: "Express JS", icon: <SiExpress /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss /> }, // You are using it!
-    { name: "Wordpress", icon: <FaWordpress /> },
+    { name: "Springboot", icon: <SiSpringboot /> },
+    { name: "React Native", icon: <FaReact /> },
   ],
   toolsAndPlatforms: [
     { name: "MongoDB", icon: <SiMongodb /> },
     { name: "Firebase", icon: <SiFirebase /> },
+    { name: "Google Cloud", icon: <SiGooglecloud /> },
     { name: "Git & GitHub", icon: <FaGithub /> },
-    { name: "VS Code", icon: <FaCode /> }, // Or a more specific icon
-    { name: "Postman", icon: <FaCode /> }, // Placeholder icon
-    { name: "Google Cloud Platform", icon: <FaCode /> }, // Placeholder icon
+    { name: "Postman", icon: <SiPostman /> },
+    { name: "VS Code", icon: <FaCode /> },
   ],
   coreCompetencies: [
-    "Problem Solving",
     "Presentations",
     "Oratory",
     "Team Leadership",
     "Event Hosting",
-    "Agile Methodologies"
-  ]
+    "Agile Methodologies",
+    "Problem Solving",
+  ],
 };
 
-export const leadershipAndInvolvement = [
+export const experience = [
   {
-    role: "Junior Partner",
-    organization: "The Apex Circle (TAC)",
-    duration: "Jan 2025 – Present",
+    role: "Product Intern",
+    organization: "Adobe",
+    duration: "Incoming 2026",
     points: [
-      "Participated in over 15 hackathons and technical events, collaborating with peers to build innovative solutions.",
-      "Mentored juniors by sharing knowledge, guiding them in projects, and fostering a strong tech community.",
+      "Selected as a Product Intern at Adobe.",
+      "Excited to contribute to world-class digital experiences and product innovation.",
     ],
   },
   {
+    role: "Web Development Intern",
+    organization: "Makabo Labs (Remote)",
+    duration: "June 2025 – July 2025",
+    points: [
+      "Developed key components for the Redknot platform, simplifying the global immigration process.",
+      "Collaborated with engineering and design on front-end (React, UI/UX) and back-end services.",
+      "Practiced agile methodologies and maintained high code quality through debugging, testing, and documentation.",
+    ],
+  },
+  // {
+  //   role: "Junior Partner",
+  //   organization: "The Apex Circle (TAC)",
+  //   duration: "Jan 2025 – Present",
+  //   points: [
+  //     "Participated in over 15 hackathons and technical events, collaborating with peers to build innovative solutions.",
+  //     "Mentored juniors by sharing knowledge, guiding them in projects, and fostering a strong tech community.",
+  //   ],
+  // },
+  {
     role: "Technical Executive",
     organization: "Computer Society of India, CU Student Branch",
-    duration: "Nov 2024 – Present",
+    duration: "Nov 2024 - July 2025",
     points: [
       "Organized 5+ workshops, hackathons, and competitions to enhance student learning and engagement.",
       "Coordinated with faculty and industry experts to bring technical opportunities to students.",
@@ -153,6 +248,8 @@ export const leadershipAndInvolvement = [
 export const socialLinks = {
   linkedin: { url: personalInfo.linkedin, icon: <FaLinkedin size={24} /> },
   github: { url: personalInfo.github, icon: <FaGithub size={24} /> },
-  email: { url: `mailto:${personalInfo.email}`, icon: <FaEnvelope size={24} /> },
-  // phone: { url: `tel:${personalInfo.phone}`, icon: <FaPhone size={24} /> }, // Optional
+  email: {
+    url: `mailto:${personalInfo.email}`,
+    icon: <FaEnvelope size={24} />,
+  },
 };

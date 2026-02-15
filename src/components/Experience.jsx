@@ -1,83 +1,77 @@
-import React from 'react';
-import SectionTitle from './SectionTitle';
-import { leadershipAndInvolvement } from '../data/portfolioData.jsx';
-import { FaAward, FaUsers, FaBriefcase } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-
-const experienceItemVariants = {
-  hidden: { opacity: 0, y: 30 }, // Adjusted y for a slightly different entry
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1, // Slightly faster stagger
-      duration: 0.5,
-      ease: "easeOut"
-    },
-  }),
-};
+import React from "react";
+import SectionTitle from "./SectionTitle";
+import { experience } from "../data/portfolioData";
+import { motion } from "framer-motion";
 
 const Experience = () => {
-  const getIcon = (title) => {
-    const lowerTitle = title.toLowerCase();
-    const iconSize = "w-4 h-4 sm:w-5 sm:h-5"; // Centralized icon size
-    if (lowerTitle.includes("partner")) return <FaBriefcase className={`text-accent-1 ${iconSize}`} />;
-    if (lowerTitle.includes("executive")) return <FaUsers className={`text-accent-1 ${iconSize}`} />;
-    if (lowerTitle.includes("rank") || lowerTitle.includes("holder")) return <FaAward className={`text-accent-1 ${iconSize}`} />;
-    return <FaBriefcase className={`text-accent-1 ${iconSize}`} />; // Default
-  };
-
   return (
-    <section id="experience" className="py-20 bg-secondary-bg">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle id="experience-title">Leadership & Involvement</SectionTitle>
+    <section
+      id="experience"
+      className="py-24 bg-secondary-bg relative overflow-hidden"
+    >
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-accent-1 rounded-full blur-[80px]"></div>
+      </div>
 
-        <div className="relative max-w-5xl mx-auto mt-12 sm:mt-16">
-          {/* Central Timeline Line: Positioned to align with the center of the icon holder */}
-          {/* The icon holder is w-8 h-8 (sm:w-10 sm:h-10). Line starts effectively at icon holder's center. */}
-          <div className="absolute left-[calc(1rem-0.5px)] sm:left-[calc(1.25rem-0.5px)] top-0 h-full w-0.5 bg-primary-bg rounded-full"></div>
-          {/* 1rem = half of w-8 (icon holder), 1.25rem = half of w-10 (icon holder on sm screens) 
-              w-0.5 is for the line width (approx 2px)
-          */}
+      <div className="container mx-auto px-6 lg:px-20">
+        <SectionTitle>Experiences</SectionTitle>
 
-          {leadershipAndInvolvement.map((item, index) => (
-            <motion.div
-              key={index}
-              className="mb-10 flex" // Use flex to align icon and content
-              custom={index}
-              variants={experienceItemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.25 }} // amount adjusted
-            >
-              {/* Icon Column (sits on the timeline line) */}
-              <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-secondary-bg rounded-full border-2 border-accent-1 flex items-center justify-center mr-4 sm:mr-6 relative z-10">
-                {/* z-10 to ensure icon is above the line if they overlap slightly */}
-                {getIcon(item.role)}
-              </div>
+        <div className="mt-16 relative">
+          {/* Vertical Line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-1 via-accent-2 to-transparent opacity-30"></div>
 
-              {/* Content Card Column */}
-              <div className="flex-grow p-4 sm:p-6 bg-primary-bg rounded-lg shadow-xl hover:shadow-accent-1/20 transition-shadow duration-300">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-1 sm:mb-2">
-                  <h3 className="text-md sm:text-lg lg:text-xl font-semibold text-accent-1 font-mono">{item.role}</h3>
-                  <p className="text-xs sm:text-sm text-text-secondary/80 font-mono mt-1 sm:mt-0">{item.duration}</p>
+          <div className="space-y-12">
+            {experience.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`relative flex flex-col md:flex-row ${
+                  index % 2 === 0 ? "md:flex-row-reverse" : ""
+                } items-start md:items-center`}
+              >
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary-bg border-2 border-accent-1 rounded-full -translate-x-[calc(50%-0.5px)] z-10 shadow-[0_0_10px_rgba(0,245,195,0.8)]"></div>
+
+                {/* Date (Opposite side) */}
+                <div
+                  className={`pl-12 md:pl-0 md:w-1/2 ${index % 2 === 0 ? "md:pl-12 text-left" : "md:pr-12 md:text-right"} mb-2 md:mb-0`}
+                >
+                  <span className="font-mono text-sm text-accent-1">
+                    {exp.duration}
+                  </span>
                 </div>
-                <p className="text-sm sm:text-md text-accent-2/90 font-semibold mb-2 sm:mb-3">{item.organization}</p>
-                
-                {item.points.length > 0 ? (
-                  <ul className="list-disc list-inside space-y-1.5 text-text-secondary pl-1">
-                    {item.points.map((point, i) => (
-                      <li key={i} className="text-xs sm:text-sm leading-relaxed sm:leading-normal">
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-text-secondary/80 italic text-xs sm:text-sm">Details forthcoming.</p>
-                )}
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Content Card */}
+                <div
+                  className={`pl-12 md:pl-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}
+                >
+                  <div className="bg-primary-bg/80 backdrop-blur-md p-6 rounded-xl border border-white/5 shadow-lg hover:border-accent-1/30 transition-colors group">
+                    <h3 className="text-xl font-bold text-text-primary group-hover:text-accent-1 transition-colors">
+                      {exp.role}
+                    </h3>
+                    <h4 className="text-lg font-semibold text-accent-2 mb-4">
+                      {exp.organization}
+                    </h4>
+                    <ul className="space-y-2">
+                      {exp.points.map((point, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start text-sm text-text-secondary/90"
+                        >
+                          <span className="text-accent-1 mr-2 mt-1.5">▹</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

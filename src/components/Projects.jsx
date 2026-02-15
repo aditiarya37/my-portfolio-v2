@@ -1,90 +1,116 @@
-import React from 'react';
-import SectionTitle from './SectionTitle';
-import { projects } from '../data/portfolioData.jsx';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: i => ({
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeOut"
-    },
-  }),
-};
-
-const ProjectCard = ({ project, index }) => {
-  return (
-    <motion.div
-      className="bg-secondary-bg rounded-lg shadow-xl overflow-hidden flex flex-col group transform hover:-translate-y-2 transition-all duration-300"
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      custom={index}
-      viewport={{ once: true, amount: 0.1 }}
-    >
-      {/* Optional: Add an image for each project */}
-      {/* <img src={project.image || '/src/assets/project-bg-1.jpg'} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"/> */}
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl sm:text-2xl font-semibold text-accent-1 font-mono">{project.title}</h3>
-          {project.icon && <div className="text-accent-1">{project.icon}</div>}
-        </div>
-        <p className="text-xs text-text-secondary font-mono mb-3">{project.date} | {project.category}</p>
-        <p className="text-sm text-text-secondary mb-4 flex-grow leading-relaxed">{project.description}</p>
-        
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-text-primary mb-1 font-mono">Tech Stack:</h4>
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech, i) => (
-              <span key={i} className="text-xs bg-primary-bg text-accent-1 px-2 py-1 rounded-full font-mono">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-auto flex justify-between space-x-4 pt-5 border-t border-primary-bg">
-          {project.githubLink && (
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary hover:text-accent-1 transition-colors flex items-center"
-              aria-label={`GitHub repository for ${project.title}`}
-            >
-              <FaGithub size={20} className="mr-1" /> <span className="font-mono text-sm">Code</span>
-            </a>
-          )}
-          {project.liveLink && (
-            <a
-              href={project.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary hover:text-accent-1 transition-colors flex items-center"
-              aria-label={`Live demo of ${project.title}`}
-            >
-              <FaExternalLinkAlt size={18} className="mr-1" /> <span className="font-mono text-sm">Live</span>
-            </a>
-          )}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
+import React from "react";
+import SectionTitle from "./SectionTitle";
+import { projects } from "../data/portfolioData";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-primary-bg">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle id="projects-title">My Creations</SectionTitle>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="projects" className="py-32 bg-primary-bg">
+      <div className="container mx-auto px-6 lg:px-12">
+        <SectionTitle>Some Things I've Built</SectionTitle>
+
+        <div className="flex flex-col gap-24 mt-20">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              // Alternating Layout Logic
+              className={`flex flex-col lg:flex-row gap-12 items-center ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
+            >
+              {/* Image Section - BIG and VISUAL */}
+              <div className="w-full lg:w-3/5 relative group">
+                <div className="relative rounded-md overflow-hidden shadow-2xl border border-white/10 group-hover:border-accent-1/30 transition-all duration-300">
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-secondary-bg/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+                  <img
+                    src={
+                      project.image ||
+                      "https://placehold.co/800x500/1a1a2e/00f5c3?text=Project+Preview"
+                    }
+                    alt={project.title}
+                    className="w-full h-auto object-cover transform transition-transform duration-700 grayscale group-hover:grayscale-0"
+                  />
+                </div>
+                {/* Decorative blob behind image */}
+                <div
+                  className={`absolute -inset-4 bg-accent-1/20 rounded-md blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                    index % 2 === 1 ? "right-0" : "left-0"
+                  }`}
+                ></div>
+              </div>
+
+              {/* Text Section */}
+              <div className="w-full lg:w-2/5 flex flex-col items-start relative z-20">
+                <p className="font-mono text-accent-1 text-sm mb-2">
+                  Featured Project
+                </p>
+                <h3 className="text-3xl font-bold text-text-primary mb-6 hover:text-accent-1 transition-colors cursor-pointer">
+                  {project.title}
+                </h3>
+
+                {/* Description Box - Updated to support list */}
+                <div className="bg-secondary-bg p-6 rounded-md shadow-xl border border-white/5 mb-6 hover:shadow-2xl transition-shadow">
+                  <ul className="list-none space-y-2 text-text-secondary leading-relaxed">
+                    {project.description.map((point, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-accent-1 mr-2 mt-1">▹</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Tech Stack */}
+                <ul className="flex flex-wrap gap-4 mb-8 text-sm font-mono text-text-secondary/80">
+                  {project.tech.map((tech, i) => (
+                    <li
+                      key={i}
+                      className="hover:text-accent-1 transition-colors"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Links - Redesigned as Buttons */}
+                <div className="flex items-center gap-4">
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-text-secondary/30 text-text-primary text-sm font-medium hover:border-accent-1 hover:text-accent-1 transition-all duration-300 group"
+                    >
+                      <FaGithub
+                        size={18}
+                        className="group-hover:scale-110 transition-transform"
+                      />
+                      <span>GitHub Repo</span>
+                    </a>
+                  )}
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-text-secondary/30 text-text-primary text-sm font-medium hover:border-accent-1 hover:text-accent-1 transition-all duration-300 group"
+                    >
+                      <FaExternalLinkAlt
+                        size={16}
+                        className="group-hover:scale-110 transition-transform"
+                      />
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
