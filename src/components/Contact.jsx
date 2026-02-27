@@ -19,7 +19,7 @@ const Contact = () => {
         transition={{ duration: 0.5 }}
         className="container mx-auto px-6 max-w-2xl relative z-10"
       >
-        <p className="text-accent-1 font-mono mb-4 text-lg">04. What's Next?</p>
+        <p className="text-accent-1 font-mono mb-4 text-lg">What's Next?</p>
         <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
           Get In Touch
         </h2>

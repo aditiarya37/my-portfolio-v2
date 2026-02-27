@@ -155,10 +155,10 @@ export const projects = [
     ],
     date: "June 2025 – July 2025",
     githubLink: "https://github.com/aditiarya37",
-    liveLink: null,
+    liveLink: "https://devlink-umber.vercel.app",
     category: "Full Stack",
     icon: <FaReact size={24} className="text-accent-1" />,
-    image: "/DevLink.jpeg",
+    image: "/DevLink.png",
   },
 ];
 
