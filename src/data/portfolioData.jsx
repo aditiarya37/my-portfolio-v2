@@ -56,40 +56,35 @@ export const education = [
 
 export const projects = [
   {
-    title: "AyurTrace",
-    tech: ["Hyperledger Fabric", "IoT", "React.js", "Smart Contracts"],
+    title: "DevLink",
+    tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
     description: [
       <>
-        <span className="text-accent-1 font-semibold">
-          1st Place Winner SIH 2025 Round 1
+        Designed and developed a{" "}
+        <span className="text-text-primary font-medium">
+          full-stack developer community platform
+        </span>{" "}
+        enabling users to create profiles, share projects, and collaborate.
+      </>,
+      <>
+        Owned the system end-to-end by implementing{" "}
+        <span className="text-text-primary font-medium">
+          frontend architecture
         </span>
-        .
-      </>,
-      <>
-        Directed a{" "}
+        , <span className="text-text-primary font-medium">backend APIs</span>,
+        and{" "}
         <span className="text-text-primary font-medium">
-          blockchain-based supply chain
-        </span>{" "}
-        web application for Ayurvedic herb traceability.
-      </>,
-      <>
-        Implemented{" "}
-        <span className="text-text-primary font-medium">
-          immutable on-chain tracking
-        </span>{" "}
-        with QR verification, ensuring{" "}
-        <span className="text-accent-1 font-semibold">
-          100% supply chain transparency
+          secure authentication
         </span>
         .
       </>,
     ],
-    date: "Aug 2025 – Sep 2025",
+    date: "June 2025 – July 2025",
     githubLink: "https://github.com/aditiarya37",
-    liveLink: "https://ayurtrace-sepia.vercel.app", // Added Live Link
-    category: "Blockchain",
-    icon: <FaDatabase size={24} className="text-accent-1" />,
-    image: "/AyurTrace.png",
+    liveLink: "https://devlink-umber.vercel.app",
+    category: "Full Stack",
+    icon: <FaReact size={24} className="text-accent-1" />,
+    image: "/DevLink.png",
   },
   {
     title: "MaViK-39",
@@ -130,35 +125,40 @@ export const projects = [
     image: "/MaViK-39.jpeg",
   },
   {
-    title: "DevLink",
-    tech: ["React JS", "Node.js", "Express.js", "MongoDB"],
+    title: "AyurTrace",
+    tech: ["Hyperledger Fabric", "IoT", "React.js", "Smart Contracts"],
     description: [
       <>
-        Designed and developed a{" "}
-        <span className="text-text-primary font-medium">
-          full-stack developer community platform
-        </span>{" "}
-        enabling users to create profiles, share projects, and collaborate.
+        <span className="text-accent-1 font-semibold">
+          1st Place Winner SIH 2025 Round 1
+        </span>
+        .
       </>,
       <>
-        Owned the system end-to-end by implementing{" "}
+        Directed a{" "}
         <span className="text-text-primary font-medium">
-          frontend architecture
-        </span>
-        , <span className="text-text-primary font-medium">backend APIs</span>,
-        and{" "}
+          blockchain-based supply chain
+        </span>{" "}
+        web application for Ayurvedic herb traceability.
+      </>,
+      <>
+        Implemented{" "}
         <span className="text-text-primary font-medium">
-          secure authentication
+          immutable on-chain tracking
+        </span>{" "}
+        with QR verification, ensuring{" "}
+        <span className="text-accent-1 font-semibold">
+          100% supply chain transparency
         </span>
         .
       </>,
     ],
-    date: "June 2025 – July 2025",
+    date: "Aug 2025 – Sep 2025",
     githubLink: "https://github.com/aditiarya37",
-    liveLink: "https://devlink-umber.vercel.app",
-    category: "Full Stack",
-    icon: <FaReact size={24} className="text-accent-1" />,
-    image: "/DevLink.png",
+    liveLink: "https://ayurtrace-sepia.vercel.app", // Added Live Link
+    category: "Blockchain",
+    icon: <FaDatabase size={24} className="text-accent-1" />,
+    image: "/AyurTrace.png",
   },
 ];
 
