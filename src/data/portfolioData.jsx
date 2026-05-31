@@ -9,6 +9,8 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaJava,
+  FaAws,
+  FaPython,
 } from "react-icons/fa";
 import {
   SiExpress,
@@ -20,6 +22,7 @@ import {
   SiSpringboot,
   SiPostman,
   SiGooglecloud,
+  SiTypescript,
 } from "react-icons/si";
 
 export const personalInfo = {
@@ -38,7 +41,7 @@ export const education = [
     institution: "Chandigarh University",
     degree: "Bachelor of Engineering in Computer Science",
     duration: "Aug 2023 – Present",
-    score: "CGPA: 8.04/10",
+    score: "CGPA: 8.05/10",
   },
   {
     institution: "Namdev Public School",
@@ -119,7 +122,7 @@ export const projects = [
     ],
     date: "Nov 2025 – Dec 2025",
     githubLink: "https://github.com/aditiarya37",
-    liveLink: "https://mavik-39.vercel.app", // Added Live Link
+    liveLink: "https://mavik-39.vercel.app",
     category: "IoT & AI",
     icon: <FaCode size={24} className="text-accent-1" />,
     image: "/MaViK-39.jpeg",
@@ -155,7 +158,7 @@ export const projects = [
     ],
     date: "Aug 2025 – Sep 2025",
     githubLink: "https://github.com/aditiarya37",
-    liveLink: "https://ayurtrace-sepia.vercel.app", // Added Live Link
+    liveLink: "https://ayurtrace-sepia.vercel.app",
     category: "Blockchain",
     icon: <FaDatabase size={24} className="text-accent-1" />,
     image: "/AyurTrace.png",
@@ -167,12 +170,15 @@ export const skills = {
     { name: "C/C++", icon: <SiCplusplus /> },
     { name: "Java", icon: <FaJava /> },
     { name: "JavaScript", icon: <SiJavascript /> },
+    { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "Python", icon: <FaPython /> },
     { name: "SQL", icon: <FaDatabase /> },
     { name: "HTML5", icon: <FaHtml5 /> },
     { name: "CSS3", icon: <FaCss3Alt /> },
   ],
   frameworksAndLibraries: [
     { name: "React JS", icon: <FaReact /> },
+    { name: "Next.js", icon: <FaCode /> },
     { name: "Node JS", icon: <FaNodeJs /> },
     { name: "Express JS", icon: <SiExpress /> },
     { name: "Springboot", icon: <SiSpringboot /> },
@@ -180,11 +186,13 @@ export const skills = {
   ],
   toolsAndPlatforms: [
     { name: "Git & GitHub", icon: <FaGithub /> },
+    { name: "AWS", icon: <FaAws /> },
     { name: "MongoDB", icon: <SiMongodb /> },
     { name: "n8n", icon: <FaCode /> },
     { name: "Postman", icon: <SiPostman /> },
     { name: "Google Cloud", icon: <SiGooglecloud /> },
     { name: "Firebase", icon: <SiFirebase /> },
+    { name: "FFmpeg", icon: <FaCode /> },
   ],
   coreCompetencies: [
     "Presentations",
@@ -200,10 +208,11 @@ export const experience = [
   {
     role: "Product Intern",
     organization: "Adobe",
-    duration: "Incoming 2026",
+    duration: "May 2026 – July 2026",
     points: [
-      "Selected as a Product Intern at Adobe.",
-      "Excited to contribute to world-class digital experiences and product innovation.",
+      "Working on product development and user-focused features within Adobe Express, collaborating with cross-functional teams in an agile environment.",
+      "Exploring video export workflows, audio systems, and creative tooling to improve product experience and functionality.",
+      "Contributing to product research, testing, and implementation while learning large-scale product engineering practices.",
     ],
   },
   {
